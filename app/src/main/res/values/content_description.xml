@@ -1,0 +1,9 @@
+<resources>
+    <string name="ic_journey">Journey Icon</string>
+    <string name="ic_fire">Fire Icon</string>
+    <string name="ic_person">Person Icon</string>
+    <string name="ic_ellipse">Ellipse Icon</string>
+    <string name="bg_segment">Progress Segment Image</string>
+    <string name="bg_castle">Castle Level Image</string>
+    <string name="bg_activity">Cutie Activity Image</string>
+</resources>
