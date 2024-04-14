@@ -97,8 +97,4 @@ dependencies {
     testImplementation(libs.com.okhttp.mockwebserver)
     testImplementation(libs.org.kotlinx.coroutines.test)
 
-    implementation(libs.org.pdfbox)
-
-
-
 }

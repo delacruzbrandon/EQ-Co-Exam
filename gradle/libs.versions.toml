@@ -26,7 +26,6 @@ okhttpMockwebserver = "4.9.3"
 kotlinCoroutinesTest = "1.8.1-Beta"
 
 koin = "3.5.0"
-pdfbox = "2.0.24"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -64,8 +63,6 @@ io-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref
 io-koin-androidx-navigation = { group = "io.insert-koin", name = "koin-androidx-navigation", version.ref = "koin" }
 io-koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
 io-koin-test = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koin" }
-
-org-pdfbox = { group = "org.apache.pdfbox", name = "pdfbox", version.ref = "pdfbox" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

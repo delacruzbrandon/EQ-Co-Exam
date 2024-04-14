@@ -101,7 +101,7 @@ fun ChapterHeaderImage(
                 )
         ) {
             Text(
-                text = level,
+                text = "Level $level",
                 style = MaterialTheme.typography.bodySmall,
                 color = White
             )

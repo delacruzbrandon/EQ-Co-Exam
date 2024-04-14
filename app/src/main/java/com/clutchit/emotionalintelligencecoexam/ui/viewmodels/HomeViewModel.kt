@@ -31,9 +31,6 @@ class HomeViewModel(
     private val _levelList = MutableStateFlow<RequestState<LevelList>>(RequestState.Idle)
     val levelList: StateFlow<RequestState<LevelList>> = _levelList
 
-    val _activityList = MutableStateFlow<RequestState<Activity>>(RequestState.Idle)
-    val activityList: StateFlow<RequestState<Activity>> = _activityList
-
     suspend fun simpleGetLevelList(): LevelList { // For Testing
         return chapterRepository.simpleTestFetchLevelList()
     }

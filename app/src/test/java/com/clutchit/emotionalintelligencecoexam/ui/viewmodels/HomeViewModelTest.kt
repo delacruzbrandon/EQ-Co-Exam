@@ -61,13 +61,33 @@ class HomeViewModelTest {
         val levelResponse = MockResponse().setResponseCode(200).setBody(levelsJson.trimIndent())
         mockWebServer.enqueue(response = levelResponse)
 
-        val levelResults = viewModel.getLevelList()
+        val levelResults = viewModel.simpleGetLevelList()
 
         // Parser for levelsJson String
         val levelListType = object : TypeToken<LevelList>() {}.type
         val expectedLevelList: LevelList = gson.fromJson(levelsJson.trimIndent(), levelListType)
 
         Assert.assertEquals(expectedLevelList, levelResults)
+    }
+
+    @Test
+    fun `testing activity icon fetch`() = runBlocking {
+        val levelResponse = MockResponse().setResponseCode(200).setBody(levelsJson.trimIndent())
+        mockWebServer.enqueue(response = levelResponse)
+
+        val levelResults = viewModel.simpleGetLevelList()
+
+        // Parser for levelsJson String
+        val levelListType = object : TypeToken<LevelList>() {}.type
+        val expectedLevelList: LevelList = gson.fromJson(levelsJson.trimIndent(), levelListType)
+
+        val responseObject = gson.fromJson(levelsJson, Response::class.java)
+
+        // Assert that the URL matches the expected value
+        Assert.assertEquals(
+            "//assets.ctfassets.net/37k4ti9zbz4t/DVQrkzmSp53EXqmFn9z1L/f4270b3b29c508c04493ead947e8651f/Chapter_01__Lesson_02__State_Active.pdf",
+            levelResults.levels[0].activities[0].icon.file.url
+        )
     }
 
     @Test
@@ -80,3 +100,13 @@ class HomeViewModelTest {
         assertNull(levelResults)
     }
 }
+
+data class Response(val levels: List<Level>)
+
+data class Level(val activities: List<Activity>)
+
+data class Activity(val icon: Icon)
+
+data class Icon(val file: File)
+
+data class File(val url: String)
