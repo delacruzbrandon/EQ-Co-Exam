@@ -3,4 +3,7 @@
     <string name="top_bar_title">Taming temper</string>
     <string name="top_bar_progress">3%</string>
     <string name="top_bar_fire_number">0</string>
+
+    <string name="empty_content">No Content Found</string>
+    <string name="loading_content">Loading Content</string>
 </resources>

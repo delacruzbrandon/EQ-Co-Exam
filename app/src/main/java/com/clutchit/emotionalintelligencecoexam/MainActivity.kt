@@ -3,27 +3,31 @@ package com.clutchit.emotionalintelligencecoexam
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.clutchit.emotionalintelligencecoexam.ui.screens.HomeScreen
 import com.clutchit.emotionalintelligencecoexam.ui.theme.EmotionalIntelligenceCoExamTheme
+import com.clutchit.emotionalintelligencecoexam.ui.viewmodels.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
-class MainActivity : ComponentActivity() {
+class MainActivity() : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
             EmotionalIntelligenceCoExamTheme {
-                // A surface container using the 'background' color from the theme
+                val homeViewModel = getViewModel<HomeViewModel>()
+
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.wrapContentHeight(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeScreen()
+                    HomeScreen(
+                        homeViewModel = homeViewModel
+                    )
                 }
             }
         }

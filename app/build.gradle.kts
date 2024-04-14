@@ -45,7 +45,12 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/gradle/incremental.annotation.processors"
+            excludes += "META-INF/DEPENDENCIES"
         }
+    }
+
+    packagingOptions {
     }
 }
 
@@ -59,6 +64,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.core.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -70,6 +77,28 @@ dependencies {
     implementation(libs.io.coil)
     implementation(libs.androidx.ui.text.google.fonts )
     implementation(libs.androidx.constraintlayout.compose)
+
+    // API Trinity
+    implementation(libs.com.retrofit)
+    implementation(libs.com.gson)
+    implementation(libs.com.gson.converter)
+    implementation(libs.com.okhttp)
+
+    // Koin
+    implementation(libs.io.koin.android)
+    implementation(libs.io.koin.androidx.navigation)
+    implementation(libs.io.koin.androidx.compose)
+    testImplementation(libs.io.koin.test)
+
+    // Unit Testing
+    testImplementation(libs.junit)
+    testImplementation(libs.org.mockito.core)
+    testImplementation(libs.org.mockito.inline)
+    testImplementation(libs.com.okhttp.mockwebserver)
+    testImplementation(libs.org.kotlinx.coroutines.test)
+
+    implementation(libs.org.pdfbox)
+
 
 
 }
